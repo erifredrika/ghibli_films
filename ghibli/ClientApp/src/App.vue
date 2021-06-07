@@ -1,6 +1,8 @@
 <template>
   <nav-menu></nav-menu>
-  <router-view />
+    <main class="main pt-4">
+        <router-view />
+    </main>
 </template>
 
 <script>

@@ -1,9 +1,5 @@
-﻿using ghibli.Repositories;
-using ghibli.Services;
+﻿using ghibli.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ghibli.Controllers
@@ -13,7 +9,6 @@ namespace ghibli.Controllers
     public class FilmController : Controller
     {
         private readonly IGhibliService _ghibliService;
-       // private readonly IFilmRepository _filmRepository;
         
         public FilmController(IGhibliService ghibliService)
         {
@@ -24,6 +19,18 @@ namespace ghibli.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await _ghibliService.FetchAllFilms();
+
+            if (!result.Success)
+                return NotFound();
+
+            return Ok(result.Entity);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> GetById(string id)
+        {
+            var result = await _ghibliService.FetchFilmById(id);
 
             if (!result.Success)
                 return NotFound();

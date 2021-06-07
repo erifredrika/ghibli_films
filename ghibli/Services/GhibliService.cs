@@ -51,6 +51,18 @@ namespace ghibli.Services
             return new ServiceResponse<IEnumerable<PersonInfo>>(personInfos);
         }
 
+        public async Task<ServiceResponse<FilmInfo>> FetchFilmById(string id)
+        {
+            var films = await _filmRepository.GetAllFilms();
+
+            var toReturn = films.Where(f => f.Id == id).FirstOrDefault();
+
+            if (toReturn == null)
+                return new ServiceResponse<FilmInfo>("Film not found");
+
+            return new ServiceResponse<FilmInfo>(toReturn.ToFilmInfo());
+        }
+
         public async Task<ServiceResponse<IEnumerable<PersonInfo>>> FetchPersonsByFilmId(string id)
         {
             var people = await _personRepository.GetAllPersons();

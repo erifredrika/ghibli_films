@@ -8,7 +8,7 @@ namespace ghibli.API
 {
     public class APICaller
     {
-        private readonly RestClient client = new RestClient("https://ghibliapi.herokuapp.com/");
+        private readonly RestClient client = new("https://ghibliapi.herokuapp.com/");
 
         public async Task<List<Film>> GetAllFilms()
         {

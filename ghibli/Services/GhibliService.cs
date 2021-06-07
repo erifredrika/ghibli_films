@@ -20,7 +20,7 @@ namespace ghibli.Services
 
         public async Task<ServiceResponse<IEnumerable<FilmInfo>>> FetchAllFilms()
         {
-            List<FilmInfo> filmsInfos = new List<FilmInfo>();
+            List<FilmInfo> filmsInfos = new();
             var films = await _filmRepository.GetAllFilms();
 
             if (films.Count <= 0)
@@ -36,7 +36,7 @@ namespace ghibli.Services
 
         public async Task<ServiceResponse<IEnumerable<PersonInfo>>> FetchAllPersons()
         {
-            List<PersonInfo> personInfos = new List<PersonInfo>();
+            List<PersonInfo> personInfos = new();
             
             var people = await _personRepository.GetAllPersons();
             

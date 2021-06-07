@@ -26,8 +26,6 @@ namespace ghibli.Services
             if (films.Count <= 0)
                 return new ServiceResponse<IEnumerable<FilmInfo>>("Films not found");
 
-            //var people = await _filmRepository.GetAllPersons();
-
             foreach (var film in films)
             {
                 filmsInfos.Add(film.ToFilmInfo());

@@ -17,7 +17,6 @@
         {
             if (int.TryParse(person.Age, out int age))
             {
-
             }
             return new PersonInfo
             {

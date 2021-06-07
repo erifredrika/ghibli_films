@@ -16,6 +16,5 @@ namespace ghibli.Models
         public int ReleaseDate { get; set; }
         public int RunningTime { get; set; }
         public int RTScore { get; set; }
-        //public List<Person> People { get; set; }
     }
 }

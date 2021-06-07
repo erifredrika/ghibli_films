@@ -17,7 +17,7 @@ namespace ghibli.Models
 
     public static class FilmExtensions
     {
-        public static FilmInfo ToFilmInfo(this Film film /*List<Person> people*/)
+        public static FilmInfo ToFilmInfo(this Film film)
         {
             return new FilmInfo
             {
@@ -25,7 +25,6 @@ namespace ghibli.Models
                 Description = film.Description,
                 Director = film.Director,
                 OriginalTitle = film.Original_Title,
-                //People = people,
                 Producer = film.Producer,
                 ReleaseDate = int.Parse(film.Release_Date),
                 RTScore = int.Parse(film.RT_Score),
